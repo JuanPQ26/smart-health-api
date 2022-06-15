@@ -12,6 +12,8 @@ from database import Base, engine, SessionLocal
 from fastapi import FastAPI, Depends
 # sqlalchemy
 from sqlalchemy.orm import Session
+# uvicorn
+import uvicorn
 
 
 # create dependency
@@ -47,3 +49,7 @@ def get_users(skip: int = 0, limit: int = 100, db: Session = Depends(get_db)):
 @app.get("/v1/comments", response_model=list[Comment])
 def get_comments(skip: int = 0, limit: int = 100, db: Session = Depends(get_db)):
     return comments_services.get_comments(db, skip, limit)
+
+
+if __name__ == '__main__':
+    uvicorn.run("main:app")
