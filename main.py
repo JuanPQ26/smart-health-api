@@ -1,3 +1,4 @@
+import os
 # services
 from api.services import users_services
 from api.services import doctors_services
@@ -52,4 +53,4 @@ def get_comments(skip: int = 0, limit: int = 100, db: Session = Depends(get_db))
 
 
 if __name__ == '__main__':
-    uvicorn.run("main:app")
+    uvicorn.run("main:app", host="0.0.0.0", port=int(os.getenv("PORT", default=500)), log_level="info")
