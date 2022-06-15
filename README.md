@@ -2,6 +2,9 @@
 API Rest Smart Health using Python, FastAPI and PostgreSQL
 
 # Documentation
+## Production
+https://smart-health-api-production.up.railway.app/
+## Development
 https://smart-health-api-development.up.railway.app/docs
 
 ## Project Setup
