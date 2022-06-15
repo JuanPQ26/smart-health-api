@@ -1,5 +1,9 @@
 # smart-health-api
 API Rest Smart Health using Python, FastAPI and PostgreSQL
+
+# Documentation
+https://smart-health-api-development.up.railway.app/docs
+
 ## Project Setup
 ```shell
 pip install -r requirements.txt
