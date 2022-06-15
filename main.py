@@ -1,8 +1,6 @@
 import os
 # services
-from api.services import users_services
-from api.services import doctors_services
-from api.services import comments_services
+from api.services import users_services, doctors_services, comments_services
 # schemas
 from api.schemas.doctors_schemas import Doctor
 from api.schemas.users_schemas import User
@@ -11,6 +9,7 @@ from api.schemas.comments_schemas import Comment
 from database import Base, engine, SessionLocal
 # fastapi
 from fastapi import FastAPI, Depends
+from fastapi.middleware.cors import CORSMiddleware
 # sqlalchemy
 from sqlalchemy.orm import Session
 # uvicorn
@@ -27,6 +26,15 @@ def get_db():
 
 
 app = FastAPI()
+
+# add cors enable
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 # create all tables in database
 Base.metadata.create_all(bind=engine)
